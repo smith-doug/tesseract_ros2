@@ -27,12 +27,12 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "rviz/default_plugin/marker_display.h"
-#include "rviz/selection/selection_manager.h"
-#include "rviz/uniform_string_stream.h"
+#include <rviz_default_plugins/displays/marker/marker_display.hpp>
+#include <rviz_common/interaction/selection_manager.hpp>
+#include <rviz_common/uniform_string_stream.hpp>
 
-#include "rviz/display_context.h"
-#include "rviz/mesh_loader.h"
+#include <rviz_common/display_context.hpp>
+#include <rviz_rendering/mesh_loader.hpp>
 
 #include <OgreSceneNode.h>
 #include <OgreSceneManager.h>
@@ -51,7 +51,7 @@ static Ogre::NameGenerator material_name_generator("Tesseract_Triangle_List_Mate
 
 TriangleListMarker::TriangleListMarker(const std::string& ns,
                                        const int id,
-                                       rviz::DisplayContext* context,
+                                       rviz_common::DisplayContext* context,
                                        Ogre::SceneNode* parent_node,
                                        const Ogre::ColourValue color,
                                        const std::vector<Ogre::Vector3>& points,
@@ -75,7 +75,7 @@ TriangleListMarker::TriangleListMarker(const std::string& ns,
       ss << "TriMesh marker [" << getStringID() << "] has a point count which is not divisible by 3 [" << num_points
          << "]";
     }
-    ROS_DEBUG("%s", ss.str().c_str());
+//    ROS_DEBUG("%s", ss.str().c_str());  // TODO: reimplement
 
     scene_node_->setVisible(false);
     return;
