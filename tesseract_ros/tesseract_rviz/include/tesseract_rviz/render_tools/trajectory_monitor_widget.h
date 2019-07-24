@@ -47,7 +47,7 @@ TESSERACT_COMMON_IGNORE_WARNINGS_POP
 #ifndef Q_MOC_RUN
 TESSERACT_COMMON_IGNORE_WARNINGS_PUSH
 #include <ros/ros.h>
-#include <tesseract_msgs/Trajectory.h>
+#include <tesseract_msgs/msg/trajectory.hpp>
 #include <tesseract/tesseract.h>
 TESSERACT_COMMON_IGNORE_WARNINGS_POP
 #endif

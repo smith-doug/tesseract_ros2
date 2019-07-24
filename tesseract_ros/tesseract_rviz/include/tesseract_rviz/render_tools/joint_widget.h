@@ -61,7 +61,7 @@ class Any;
 class RibbonTrail;
 }  // namespace Ogre
 
-namespace rviz
+namespace rviz_common
 {
 class Shape;
 class Arrow;
@@ -157,17 +157,17 @@ protected:
   std::string child_link_name_;
 
   // properties
-  rviz::Property* joint_property_;
-  rviz::Property* details_;
-  rviz::VectorProperty* position_property_;
-  rviz::QuaternionProperty* orientation_property_;
-  rviz::Property* axes_property_;
+  rviz_common::Property* joint_property_;
+  rviz_common::Property* details_;
+  rviz_common::VectorProperty* position_property_;
+  rviz_common::QuaternionProperty* orientation_property_;
+  rviz_common::Property* axes_property_;
   // The joint axis if any, as opposed to the frame in which the joint exists above
-  rviz::VectorProperty* axis_property_;
-  rviz::Property* show_axis_property_;
-  rviz::StringProperty* type_property_;
-  rviz::FloatProperty* lower_limit_property_;
-  rviz::FloatProperty* upper_limit_property_;
+  rviz_common::VectorProperty* axis_property_;
+  rviz_common::Property* show_axis_property_;
+  rviz_common::StringProperty* type_property_;
+  rviz_common::FloatProperty* lower_limit_property_;
+  rviz_common::FloatProperty* upper_limit_property_;
 
 private:
   Ogre::Vector3 joint_origin_pos_;
@@ -176,8 +176,8 @@ private:
 
   bool doing_set_checkbox_;  // prevents updateChildVisibility() from  touching children
 
-  rviz::Axes* axes_;
-  rviz::Arrow* axis_;
+  rviz_rendering::Axes* axes_;
+  rviz_rendering::Arrow* axis_;
 };
 
 }  // namespace tesseract_rviz

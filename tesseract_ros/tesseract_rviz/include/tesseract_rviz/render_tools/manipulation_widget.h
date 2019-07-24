@@ -35,9 +35,9 @@ TESSERACT_COMMON_IGNORE_WARNINGS_POP
 #ifndef Q_MOC_RUN
 TESSERACT_COMMON_IGNORE_WARNINGS_PUSH
 #include <ros/ros.h>
-#include <tesseract_msgs/Trajectory.h>
+#include <tesseract_msgs/msg/trajectory.hpp>
 #include <tesseract/tesseract.h>
-#include <sensor_msgs/JointState.h>
+#include <sensor_msgs/msg/joint_state.hpp>
 #include <boost/thread/mutex.hpp>
 #include <tesseract_kinematics/core/inverse_kinematics.h>
 TESSERACT_COMMON_IGNORE_WARNINGS_POP

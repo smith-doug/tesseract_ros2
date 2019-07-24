@@ -12,9 +12,9 @@ TESSERACT_COMMON_IGNORE_WARNINGS_PUSH
 #include <ros/ros.h>
 #include <ros/service_server.h>
 #include <ros/subscriber.h>
-#include <tesseract_msgs/ModifyEnvironment.h>
-#include <tesseract_msgs/GetEnvironmentChanges.h>
-#include <tesseract_msgs/TesseractState.h>
+#include <tesseract_msgs/srv/modify_environment.hpp>
+#include <tesseract_msgs/srv/get_environment_changes.hpp>
+#include <tesseract_msgs/msg/tesseract_state.hpp>
 #include <std_msgs/ColorRGBA.h>
 #include <tesseract/tesseract.h>
 TESSERACT_COMMON_IGNORE_WARNINGS_POP
