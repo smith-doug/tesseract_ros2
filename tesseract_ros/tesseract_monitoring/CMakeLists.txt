@@ -1,18 +1,19 @@
 cmake_minimum_required(VERSION 3.5.0)
 project(tesseract_monitoring VERSION 0.1.0 LANGUAGES CXX)
 
-find_package(tesseract REQUIRED)
-find_package(Eigen3 REQUIRED)
 
 list(FIND CMAKE_CXX_COMPILE_FEATURES cxx_std_17 CXX_FEATURE_FOUND)
 
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
+find_package(pluginlib REQUIRED)
 find_package(tesseract_msgs REQUIRED)
 find_package(tesseract_rosutils REQUIRED)
-find_package(pluginlib REQUIRED)
 find_package(tf2_ros REQUIRED)
 find_package(tf2_eigen REQUIRED)
+
+find_package(tesseract REQUIRED)
+find_package(Eigen3 REQUIRED)
 
 include_directories(
   include

@@ -17,18 +17,18 @@ def generate_launch_description():
 
     return launch.LaunchDescription([
         launch_ros.actions.Node(
-            node_name='environment_monitor',
+            name='environment_monitor',
             package='tesseract_monitoring',
-            node_executable='tesseract_monitoring_environment_node',
+            executable='tesseract_monitoring_environment_node',
             output='screen',
             arguments=[],
             parameters=[{'desc_param': 'robot_description',
             'robot_description': urdf,
             'robot_description_semantic': srdf}]),
         launch_ros.actions.Node(
-            node_name='joint_state_pub',
+            name='joint_state_pub',
             package='joint_state_publisher',
-            node_executable='joint_state_publisher',
+            executable='joint_state_publisher',
             output='screen',
             arguments=[urdf],
             parameters=[{'use_gui': 'false'}]),
