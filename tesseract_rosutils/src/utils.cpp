@@ -1633,7 +1633,7 @@ void toMsg(tesseract_msgs::msg::JointTrajectory& traj_msg, const tesseract_commo
     for (int i = 0; i < js.acceleration.size(); ++i)
       js_msg.acceleration[static_cast<size_t>(i)] = js.acceleration(i);
 
-    js_msg.time_from_start = rclcpp::Duration(js.time);
+    js_msg.time_from_start = rclcpp::Duration(std::chrono::duration<double>(js.time));
     traj_msg.states.push_back(js_msg);
   }
 }

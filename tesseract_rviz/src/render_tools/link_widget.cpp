@@ -44,7 +44,7 @@ TESSERACT_COMMON_IGNORE_WARNINGS_PUSH
 
 #include <console_bridge/console.h>
 
-#include <resource_retriever/retriever.h>
+#include <resource_retriever/retriever.hpp>
 #include <octomap/octomap.h>
 #include <octomap_msgs/msg/octomap.hpp>
 

@@ -6,6 +6,7 @@ find_package(pluginlib REQUIRED)
 find_package(rclcpp REQUIRED)
 #find_package(rviz_ogre_vendor REQUIRED)
 find_package(rviz_common REQUIRED)
+find_package(rviz_default_plugins REQUIRED)
 #find_package(rviz_rendering REQUIRED)
 find_package(interactive_markers REQUIRED)
 find_package(ament_cmake REQUIRED)
@@ -80,6 +81,7 @@ target_link_libraries(${PROJECT_NAME}_markers PUBLIC
 #  rviz_ogre_vendor::OgreOverlay
   rviz_common::rviz_common
   rviz_rendering::rviz_rendering
+  rviz_default_plugins::rviz_default_plugins
   Qt5::Widgets
   ${Boost_LIBRARIES}
 )
@@ -181,6 +183,7 @@ ament_target_dependencies(${PROJECT_NAME}_render_tools PUBLIC
   tesseract_msgs
   tesseract_monitoring
   tesseract_rosutils
+  rviz_default_plugins
 )
 target_compile_options(${PROJECT_NAME}_render_tools PUBLIC ${TESSERACT_COMPILE_OPTIONS})
 target_cxx_version(${PROJECT_NAME}_render_tools PUBLIC VERSION 17)

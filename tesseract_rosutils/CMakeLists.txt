@@ -68,6 +68,7 @@ ament_target_dependencies(${PROJECT_NAME} PUBLIC
     geometry_msgs
     visualization_msgs
     std_msgs
+    tf2_eigen
 )
 
 install(
