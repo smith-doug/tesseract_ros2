@@ -29,7 +29,7 @@ TESSERACT_COMMON_IGNORE_WARNINGS_PUSH
 #include <rclcpp/rclcpp.hpp>
 #include <ament_index_cpp/get_package_share_directory.hpp>
 #include <octomap_msgs/conversions.h>
-//#include <ros/console.h>
+// #include <ros/console.h>
 #include <tesseract_msgs/msg/string_limits_pair.hpp>
 #include <tf2_eigen/tf2_eigen.h>
 
@@ -1660,7 +1660,7 @@ tesseract_common::JointTrajectory fromMsg(const tesseract_msgs::msg::JointTrajec
     for (std::size_t i = 0; i < js_msg.acceleration.size(); ++i)
       js.acceleration(static_cast<long>(i)) = js_msg.acceleration[i];
 
-    js.time = js_msg.time_from_start.sec;
+    js.time = rclcpp::Duration(js_msg.time_from_start).seconds();
     trajectory.push_back(js);
   }
   return trajectory;
@@ -1714,7 +1714,8 @@ tesseract_common::JointTrajectory fromMsg(const std::vector<tesseract_msgs::msg:
     for (std::size_t i = 0; i < js_msg.acceleration.size(); ++i)
       js.acceleration(static_cast<long>(i)) = js_msg.acceleration[i];
 
-    js.time = js_msg.time_from_start.sec;
+    // js.time = js_msg.time_from_start.sec;
+    js.time = rclcpp::Duration(js_msg.time_from_start).seconds();
     trajectory.push_back(js);
   }
   return trajectory;
