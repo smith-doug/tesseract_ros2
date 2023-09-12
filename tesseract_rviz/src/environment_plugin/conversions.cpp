@@ -31,6 +31,8 @@
 
 #include <tesseract_geometry/geometries.h>
 
+const std::string USER_VISIBILITY = "user_visibility";
+
 namespace tesseract_rviz
 {
 static Ogre::NameGenerator material_name_generator("tesseract::material::");
@@ -227,7 +229,12 @@ Ogre::SceneNode* loadLink(Ogre::SceneManager& scene,
   if (!link.visual.empty() || !link.collision.empty())
   {
     Ogre::AxisAlignedBox aabb = getAABB(*scene_node);
-    scene_node->addChild(loadLinkWireBox(scene, entity_container, link, aabb));
+    if (aabb.isFinite())
+    {
+      Ogre::SceneNode* wirebox_scene_node = loadLinkWireBox(scene, entity_container, link, aabb);
+      wirebox_scene_node->getUserObjectBindings().setUserAny(USER_VISIBILITY, Ogre::Any(false));
+      scene_node->addChild(wirebox_scene_node);
+    }
   }
 
   scene_node->addChild(loadLinkAxis(scene, entity_container, link));
@@ -969,13 +976,17 @@ Ogre::AxisAlignedBox getAABB(Ogre::SceneNode& scene_node)
   Ogre::AxisAlignedBox aabb;
   getAABBRecursive(aabb, scene_node, Ogre::Matrix4::IDENTITY);
 
-  Ogre::Vector3 scale(1.15, 1.15, 1.15);
-  Ogre::Vector3 center = aabb.getCenter();
-  Ogre::Vector3 max = aabb.getMaximum();
-  Ogre::Vector3 min = aabb.getMinimum();
+  if (aabb.isFinite())
+  {
+    Ogre::Vector3 scale(1.15, 1.15, 1.15);
+    Ogre::Vector3 center = aabb.getCenter();
+    Ogre::Vector3 max = aabb.getMaximum();
+    Ogre::Vector3 min = aabb.getMinimum();
 
-  aabb.setMaximum(center + (scale * (max - center)));
-  aabb.setMinimum(center + (scale * (min - center)));
+    aabb.setMaximum(center + (scale * (max - center)));
+    aabb.setMinimum(center + (scale * (min - center)));
+  }
+
 
   return aabb;
 }
